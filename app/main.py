@@ -8,7 +8,11 @@ class Person:
 
 
 def create_person_list(people: list) -> list:
-    result = [Person(person_dict["name"], person_dict["age"]) for person_dict in people]
+    result = [
+        Person(person_dict["name"],
+        person_dict["age"])
+        for person_dict in people
+    ]
     for person_dict, person_obj in zip(people, result):
         wife_name = person_dict.get("wife")
         if wife_name != "":
@@ -19,5 +23,6 @@ def create_person_list(people: list) -> list:
             if Person.people.get(husband_name):
                 person_obj.husband = Person.people[husband_name]
     return result
+
 
 
